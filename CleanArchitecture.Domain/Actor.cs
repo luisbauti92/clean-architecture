@@ -1,9 +1,17 @@
-﻿namespace CleanArchitecture.Domain
+﻿using CleanArchitecture.Domain.Common;
+
+namespace CleanArchitecture.Domain
 {
-    public class Actor
+    public class Actor : BaseDomainModel
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        public Actor()
+        {
+            Videos = new HashSet<Video>();
+        }
+
+        public string? Nombre { get; set; }
+        public string? Apellido { get; set; }
+
+        public virtual ICollection<Video> Videos { get; set; }  
     }
 }
